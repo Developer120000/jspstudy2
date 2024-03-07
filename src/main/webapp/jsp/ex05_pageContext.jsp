@@ -53,6 +53,9 @@
 		request.setAttribute("name", "도우너");
 		session.setAttribute("name", "희동이");
 		application.setAttribute("name", "마이콜");
+		/* ex06 에서 include 할 때 */
+		String phone = request.getParameter("phone");
+		pageContext.setAttribute("phone", phone);
 	%>
 	
 	<h3>결과 : ${name}</h3>
@@ -60,5 +63,7 @@
 	<h3>결과 : ${requestScope.name}</h3>
 	<h3>결과 : ${sessionScope.name}</h3>
 	<h3>결과 : ${applicationScope.name}</h3>
+	<!-- ex06 에서 include 할 때 -->
+	<h3>결과 : ${phone}</h3>
 </body>
 </html>

@@ -5,9 +5,35 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	#myform{
+		width: 400px;
+		margin:30px auto;
+		border: 1px solid black;
+		border-radius: 10px;
+		padding: 20px;
+	}
+	#myform fieldset{
+		border: 1px solid #ccc;
+		margin-bottom: 30px;
+	}
+	#myform legend{
+		font-size: 16px;
+		font-weight: bold;
+		padding-left: 5px;
+		padding-bottom: 10px;
+	}
+	#myform ul li{
+		line-height: 30px;	
+		list-style-type: none;
+		padding: 5px 10px;
+		margin-bottom: 2px;
+	}
+	#myform input {padding: 5px}
+</style>
 </head>
 <body>
-	<form action="/01_servlet/Ex14" method="post" id="myform">
+	<form action="/jspstudy3/Ex14" method="post" id="myform">
 		<fieldset>
 			<legend> 성적 입력 </legend>
 			<ul>
@@ -23,7 +49,7 @@
 	</form>
 	<hr>
 	
-	<form action="/01_servlet/Ex14" method="post">
+	<form action="/jspstudy3/Ex14" method="post">
 	    <p>취미 : 
 	        <input type="checkbox" name="hobby" value="운동">운동
 	        <input type="checkbox" name="hobby" value="게임">게임

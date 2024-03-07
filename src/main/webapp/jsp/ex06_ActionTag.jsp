@@ -25,6 +25,25 @@
 					<jsp:param value="" name=""/>
 				</jsp:include>
  --%>
+<!-- 	<h2>include 지시어 사용하기</h2> -->
+<%-- 	<%@ include file="ex03_request.jsp" %> --%>
+	
+<!-- 	<h2>include 액션 사용하기</h2> -->
+<%-- 	<jsp:include page="ex03_request.jsp"></jsp:include> --%>
 
+	<hr>
+	<!-- response 하고 뒤에 하면 죽기때문에 안나온다. 호출하기전에 request 해야한다 -->
+<%-- 	<%request.setAttribute("phone", "010-9732-9110"); %>  --%>
+<!-- 	<h2>include 지시어 사용하기</h2> -->
+<%-- 	<%@ include file="ex05_pageContext.jsp" %> --%>
+	
+<%-- 	<%request.setAttribute("phone", "010-9732-9110"); %> --%>
+<!-- 	<h2>include 액션 사용하기</h2> -->
+<%-- 	<jsp:include page="ex05_pageContext.jsp"></jsp:include> --%>
+	
+	<h2>include 액션 사용하기</h2>
+	<jsp:include page="ex05_pageContext.jsp">
+		<jsp:param value="010-9732-9110" name="phone"/>
+	</jsp:include>
 </body>
 </html>
