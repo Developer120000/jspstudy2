@@ -14,4 +14,12 @@
 	<select id="detail" parameterType="String" resultType="com.ict.db.GuestVO">
 		select * from guestbook where idx = #{idx}
 	</select>
+	<delete id="delete" parameterType="String">
+		delete from guestbook where idx = #{idx}
+	</delete>
+	<update id="update" parameterType="com.ict.db.GuestVO">
+		update guestbook
+		set name=#{name}, subject=#{subject}, email=#{email), content=#{content} 
+		where idx = #{idx}
+	</update>
 </mapper>

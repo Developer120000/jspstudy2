@@ -28,9 +28,9 @@
 						<tr><td colspan="4"><h3>원하는 정보가 존재하지 않습니다.</h3></td></tr>
 					</c:when>
 					<c:otherwise>
-						<c:forEach var="k" items="${list}">
+						<c:forEach var="k" items="${list}" varStatus="vs">
 							<tr>
-								<td>${k.idx}</td>
+								<td>${vs.count}</td> <!-- k.index 안씀, 번호가 빔 -->
 								<td>${k.name}</td>
 								<td><a href="/jspstudy3/Guest?cmd=onelist&idx=${k.idx}">${k.subject}</a></td>
 								<td>${k.regdate.substring(0,10)}</td>

@@ -39,4 +39,19 @@ public class GuestDAO {
 		gvo = getSession().selectOne("guestbook.detail", idx);
 		return gvo;
 	};
+	
+	// idx 받아서 삭제하기
+	public static int getDelete(String idx) {
+		int result = 0;
+		result = getSession().delete("guestbook.delete", idx);
+		ss.commit();
+		return result;
+	}
+	
+	public static int getUpdate(GuestVO gvo) {
+		int result = 0;
+		result = getSession().update("guestbook.update", gvo);
+		ss.commit();
+		return result;
+	}
 }

@@ -12,48 +12,58 @@
 	div{width: 600px; margin:auto; text-align: center;}
 </style>
 <script type="text/javascript">
-	function delete_go(f) {
-		f.action="/jspstudy3/Guest?cmd=delete"; // 수정이넘어올지 삭제가 넘어올지 모르니 이름값까지 넣어야한다.
-		f.submit();
-	}
 	function update_go(f) {
-		f.action="/jspstudy3/Guest?cmd=update"; // 수정이넘어올지 삭제가 넘어올지 모르니 이름값까지 넣어야한다.
-		f.submit();
+		// 값이 다 채워졌는지 검사
+		const pwd = "${gvo.pwd}";
+		const pwd2 = f.pwd.value;
+		if(pwd == pwd2){
+			f.action = "/jspstudy3/Guest";
+			f.submit();	
+		}else{
+			alert('비밀번호 틀림');
+			f.pwd.value='';
+			f.pwd.focus();
+			return;
+		}
 	}
 </script>
 </head>
 <body>
 	<div>
-		<h2>방명록 : 작성화면</h2>
+		<h2>방명록 : 수정화면</h2>
 		<hr />
 		<p>[<a href="/jspstudy3/Guest?cmd=list">목록으로 이동</a>]</p>
-		<form method="post">
+		<form method="post"> <!-- get 방식으로 하면 오류나는경우가 있어서 post 로 해야함 -->
 			<table>
 				<tr align="center">
 					<td bgcolor="#99ccff">작성자</td>
-					<td>${gvo.name}</td>
+					<td><input type="text" name="name" size ="20" value="${gvo.name}"/></td>
 				</tr>
 				<tr align="center">
 					<td bgcolor="#99ccff">제  목</td>
-					<td>${gvo.subject}</td>
+					<td><input type="text" name="subject" size ="20" value="${gvo.subject}"/></td>
 				</tr>
 				<tr align="center">
 					<td bgcolor="#99ccff">email</td>
-					<td>${gvo.email}</td>
+					<td><input type="text" name="email" size ="20" value="${gvo.email}"/></td>
 				</tr>
-				<tr align="left">
+				<tr align="center">
+					<td bgcolor="#99ccff">비밀번호</td>
+					<td><input type="password" name="pwd" size ="20"/></td>
+				</tr>
+				<tr align="center">
 					<td colspan="2">
-						<pre style="padding-left: 15px">${gvo.content}</pre> <!-- 띄어쓰기도 저장되지만 가운데정렬이 기본이라 스타일줘야된다. -->
+						<textarea rows="10" cols="60" name="content">${gvo.content}</textarea>
 					</td>
 				</tr>
 				<tfoot>
 					<tr align="center">
 						<td colspan="2">
 							<input type="hidden" name="idx" value="${gvo.idx}">
-							<input type="hidden" name="pwd" value="${gvo.pwd}">
+							<input type="hidden" name="cmd" value="update_ok">
 							<input type="button" value="수정" onclick="update_go(this.form)" />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="button" value="삭제" onclick="delete_go(this.form)" />
+							<input type="reset" value="취소" />
 						</td>
 					</tr>
 				</tfoot>

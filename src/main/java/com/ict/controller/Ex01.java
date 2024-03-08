@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Ex01")
 public class Ex01 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    // servlet 파일
+	
 	// 이 다음 부터는 기본 생성자 생략한다.
     public Ex01() {
         System.out.println("생성자()");
