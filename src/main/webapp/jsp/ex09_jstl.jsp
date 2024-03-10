@@ -1,6 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="com.ict.db.VO"%>
+<%@page import="com.ict.db.VO_i"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -139,19 +139,18 @@
 	</c:forEach>
 	
 <%
-	// 모델에서 ArrayList를 가져왔다고 치자
-	VO vo1 = new VO("2", "도우너", "2", "경기");
-	VO vo2 = new VO("3", "마이콜", "34", "대구");
-	VO vo3 = new VO("4", "희동이", "15", "대전");
-
+	// 모델에서 ArrayList를 가져왔다고 치자VO_iVO vo1 = neVO_iVO("2", "도우너", "2", "경기");VO_iVO vo2 = neVO_iVO("3", "마이콜", "34", "대구");VO_iVO vo3 = neVO_iVO("4", "희동이", "15", "대전");
+	VO_i vo1 = new VO_i("2", "도우너", "2", "경기");
+	VO_i vo2 = new VO_i("3", "마이콜", "34", "대구");
+	VO_i vo3 = new VO_i("4", "희동이", "15", "대전");
 	// 강제로 DB 에서 처리한 것 처럼 List<VO> 에 정보를 넣자
-	List<VO> list = new ArrayList<VO>();
+	List<VO_i> list = new ArrayList<VO_i>();
 	list.add(vo1);
 	list.add(vo2);
 	list.add(vo3);
-	
+		
 	request.setAttribute("list", list);
-%>
+	%>
 	<c:forEach var="k" items="${list}">
 		<li>${k.idx} : ${k.name} : ${k.age} : ${k.addr}</li>
 	</c:forEach>

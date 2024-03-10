@@ -1,4 +1,4 @@
-<%@page import="com.ict.db.VO"%>
+<%@page import="com.ict.db.VO_i"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,9 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%	
-	// <% 표현식 안에서 자바코드 사용 가능, MVC 할때는 사용안하는게 정석
-	VO vo = new VO("1", "둘리", "24", "서울");
+<%
+// <% 표현식 안에서 자바코드 사용 가능, MVC 할때는 사용안하는게 정석
+	VO_i vo = new VO_i("1", "둘리", "24", "서울");
 	request.setAttribute("vo", vo);
 %>
 <h2>
